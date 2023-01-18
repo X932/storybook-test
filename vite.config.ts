@@ -16,9 +16,9 @@ export default defineConfig((configEnv) => ({
   build: {
     lib: {
       entry: resolve("src", "index.ts"),
-      name: "ui-components-test",
+      name: "ui-alif-components-test",
       formats: ["es", "umd"],
-      fileName: (format) => `ui-components-test.${format}.js`,
+      fileName: (format) => `ui-alif-components-test.${format}.js`,
     },
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],

@@ -19,7 +19,7 @@
     "baseUrl": ".",
     "outDir": "./dist",
     "paths": {
-      "ui-components-test": ["src/index.ts"],
+      "ui-alif-components-test": ["src/index.ts"],
       "@stories/*": ["/src/stories/*"]
     },
     "typeRoots": ["node_modules/@types", "src/index.d.ts"]
