@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: AlsHaussRegular;
+  src: url("../public/fonts/Als-Hauss-Regular.woff2") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ALSHaussBold;
+  src: url("../public/fonts/Als-Hauss-Bold.woff2") format("truetype");
+  font-display: swap;
+}
