@@ -1,21 +1,33 @@
 {
-  "name": "ui-web-components-vite",
+  "name": "ui-components-test",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "dist/ui-components-test.cjs.js",
+  "module": "dist/ui-components-test.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist",
+    "/dist/style.css"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "concurrently \"yarn build:css\" \"tsc --emitDeclarationOnly && vite build\"",
     "preview": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "concurrently \"yarn storybook:css\" \"storybook dev -p 6006\"",
+    "build-storybook": "concurrently \"yarn build-storybook:css\" \"storybook build\"",
+    "build-storybook-test": "cross-env BABEL_ENV=production babel src -d dist",
+    "build:css": "tailwindcss -m -i ./src/index.scss -o ./dist/index.css",
+    "storybook:css": "tailwindcss -w -i ./src/index.scss -o ./src/index.css",
+    "build-storybook:css": "tailwindcss -m -i ./src/index.scss -o ./src/index.css"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "vite-plugin-dts": "^1.7.1",
+    "vite-tsconfig-paths": "^4.0.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-docs": "^6.5.15",
@@ -31,6 +43,8 @@
     "@vitejs/plugin-react": "^3.0.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.7.3",
     "postcss": "^8.4.21",
     "sass": "^1.57.1",
@@ -39,5 +53,9 @@
     "style-loader": "^3.3.1",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

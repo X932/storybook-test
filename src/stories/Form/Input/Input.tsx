@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, FC, InputHTMLAttributes } from "react";
 
-interface IInputProps
+export interface IInputProps
   extends DetailedHTMLProps<
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
