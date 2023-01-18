@@ -1,7 +1,7 @@
 {
   "name": "ui-alif-components-test",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "main": "dist/ui-alif-components-test.umd.js",
   "module": "dist/ui-alif-components-test.es.js",
